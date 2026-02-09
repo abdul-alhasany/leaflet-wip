@@ -28,7 +28,8 @@ export default [
 			'docs/_posts/2025-05-18-leaflet-2.0.0-alpha.md', // importmap is not recognized by eslint
 			'docs/_posts/201*',
 			'docs/_site',
-			'coverage'
+			'coverage',
+			'hub/public'
 		]
 	},
 	{
