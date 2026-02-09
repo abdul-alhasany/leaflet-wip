@@ -62,6 +62,8 @@ export default defineConfig({
 						{text: 'Leaflet on Mobile', link: '/guide/tutorials/mobile'},
 						{text: 'Using GeoJSON with Leaflet', link: '/guide/tutorials/geojson'},
 						{text: 'Creating a Choropleth Map', link: '/guide/tutorials/choropleth'},
+						{text: 'Layer Control', link: '/guide/tutorials/layer-control'},
+						{text: 'Zoom Levels', link: '/guide/tutorials/zoom-levels'},
 					]
 				},
 				{text: 'Blog', link: '/blog/'},
