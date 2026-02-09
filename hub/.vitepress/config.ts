@@ -43,6 +43,7 @@ export default defineConfig({
 		},
 		nav: [
 			{text: 'Blog', link: '/blog'},
+			{text: 'Guide', link: '/guide/tutorials'},
 			{text: 'Plugins', link: '/plugins'},
 			{text: 'API Reference', link: '/api/v2.0.0-alpha.1'},
 		],
@@ -51,7 +52,18 @@ export default defineConfig({
 			'/plugins': pluginsSidebar,
 			'/api': apiSidebar,
 			'/':[
-				{text: 'Examples', link: '/markdown-examples'},
+				{
+					text: 'Tutorials',
+					link: '/guide/tutorials',
+					items: [
+						{text: 'Quick Start', link: '/guide/tutorials/quick-start'},
+						{text: 'Accessibility', link: '/guide/tutorials/accessible-maps'},
+						{text: 'Custom Icons', link: '/guide/tutorials/custom-icons'},
+						{text: 'Leaflet on Mobile', link: '/guide/tutorials/mobile'},
+						{text: 'Using GeoJSON with Leaflet', link: '/guide/tutorials/geojson'},
+						{text: 'Creating a Choropleth Map', link: '/guide/tutorials/choropleth'},
+					]
+				},
 				{text: 'Blog', link: '/blog/'},
 				{text: 'API Reference', link: '/api/v2.0.0-alpha.1'},
 				{text: 'Documentation', link: '/docs'},

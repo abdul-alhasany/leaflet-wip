@@ -3,9 +3,10 @@ import type {Theme} from 'vitepress';
 import DefaultTheme from 'vitepress/theme';
 import BlogIndex from './BlogIndex.vue';
 import BlogPost from './BlogPost.vue';
+import TutorialsIndex from './TutorialsIndex.vue';
 import CustomLayout from './CustomLayout.vue';
 import CollapsibleData from './CollapsibleData.vue';
-
+import RenderMap from './RenderMap.vue';
 import './style.css';
 
 export default {
@@ -15,5 +16,7 @@ export default {
 		app.component('BlogIndex', BlogIndex);
 		app.component('Post', BlogPost);
 		app.component('CollapsibleData', CollapsibleData);
+		app.component('RenderMap', RenderMap);
+		app.component('TutorialsIndex', TutorialsIndex);
 	}
 } satisfies Theme;
