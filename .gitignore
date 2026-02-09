@@ -1,0 +1,35 @@
+node_modules
+.DS_Store
+tmp/**/*
+.idea
+.idea/**/*
+*.iml
+_site
+*.sublime-*
+_site
+dist/
+coverage/
+*.js.html
+.mailmap
+component.json
+debug/local/
+yarn.lock
+*.log
+.eslintcache
+
+hub/.vitepress/.temp
+hub/.vitepress/dist
+hub/.vitepress/cache
+
+# Generated sidebar files
+hub/.vitepress/generated-sidebars/*.ts
+
+# Generated plugin index files
+hub/plugins/**/index.md
+hub/plugins/plugins-index.md
+
+# Generated API documentation
+hub/api/*.md
+
+# Cache directories (downloaded by generate-api.ts)
+leaflet-repo-cache
