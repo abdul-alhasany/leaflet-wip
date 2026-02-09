@@ -52,7 +52,7 @@ jobs:
         run: pnpm docs:generate:plugins
 
       - name: Generate API documentation
-        run: pnpm docs:generate:api
+        run: pnpm docs:generate:api --pull
 
       - name: Build with VitePress
         run: pnpm docs:build
