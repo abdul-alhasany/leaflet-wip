@@ -7,6 +7,8 @@ import path from 'path';
 import chalk from 'chalk';
 import currentPackageJson from '../package.json';
 
+const TAGS_LIMIT = 5;
+
 const info = function (message: string) {
 	console.log(chalk.blue(message));
 };
@@ -88,7 +90,7 @@ info('Building Leaflet documentation with Leafdoc ...');
 
 // const out = doc.outputStr();
 const outputPath = './output.json';
-const apiDataPath = path.join(__dirname, '../hub/api');
+const apiDataPath = path.join(__dirname, '../hub/develop/api');
 const tagsCachePath = path.join(__dirname, '../leaflet-repo-cache');
 const vitepressDirectoryPath = path.join(__dirname, '../hub/.vitepress');
 
@@ -589,7 +591,7 @@ class ApiDocumentation {
 
 }
 
-const generateJson = function (): RootDoc {
+const generateJson = function (path?: string): RootDoc {
 	const doc = new LeafDoc({
 		templateDir: 'build/leafdoc-templates',
 		showInheritancesWhenEmpty: true,
@@ -601,7 +603,11 @@ const generateJson = function (): RootDoc {
 	doc.registerDocumentable('crs', 'Defined CRSs');
 
 	doc.addFile('build/docs-index.leafdoc', false);
-	doc.addDir('src');
+	if (path) {
+		doc.addDir(`${path}/src`);
+	} else {
+		doc.addDir('src');
+	}
 	doc.addFile('build/docs-misc.leafdoc', false);
 	return JSON.parse(doc.outputJSON());
 };
@@ -728,15 +734,15 @@ const fetchAndCopyTags = async function (): Promise<SidebarItem[]> {
 
 	const sidebar: SidebarItem[] = [];
 	// checkout each tag, generate the API documentation, and save it in the apiDataPath with the tag name as a subdirectory
-	for (const tag of organizeTags(tags.all)) {
+	for (const tag of organizeTags(tags.all).slice(0, TAGS_LIMIT)) {
 		info(`Processing tag: ${tag}`);
 		await git.checkout(tag);
-		const json = generateJson();
+		const json = generateJson(tagsCachePath);
 		const tagWithoutPrefix = tag.startsWith('v') ? tag.substring(1) : tag;
 		await generateApiDocumentation(tagWithoutPrefix, json);
 		sidebar.push({
 			text: tagWithoutPrefix,
-			link: `/api/${tagWithoutPrefix}`
+			link: `/develop/api/${tagWithoutPrefix}`
 		});
 	}
 
@@ -787,22 +793,21 @@ const organizeSidebar = function (sidebar: SidebarItem[]): SidebarItem[] {
 
 	return result;
 };
+
 const startProcess = async function () {
 	try {
 		// delete apiDataPath content before starting to generate new documentation
 		await emptyDir(apiDataPath);
 		const sidebar = await fetchAndCopyTags();
-
-		// current version documentation
 		const json = generateJson();
 		await generateApiDocumentation(`v${currentPackageJson.version}`, json);
 
-		const organizedSidebar = organizeSidebar(sidebar);
-		organizedSidebar.unshift({
-			text: `v${currentPackageJson.version} (current)`,
-			link: `/api/v${currentPackageJson.version}`
+		// const organizedSidebar = organizeSidebar(sidebar);
+		sidebar.unshift({
+			text: `v${currentPackageJson.version}`,
+			link: `/develop/api/v${currentPackageJson.version}`
 		});
-		await writeSidebarFile(organizedSidebar);
+		await writeSidebarFile(sidebar);
 
 		success('Completed generating API documentation!');
 	} catch (errorCaught) {

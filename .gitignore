@@ -29,7 +29,7 @@ hub/plugins/**/index.md
 hub/plugins/plugins-index.md
 
 # Generated API documentation
-hub/api/*.md
+hub/develop/api/*.md
 
 # Cache directories (downloaded by generate-api.ts)
 leaflet-repo-cache

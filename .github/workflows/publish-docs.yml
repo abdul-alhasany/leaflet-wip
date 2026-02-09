@@ -48,8 +48,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Run generators
+      - name: Generate plugins
         run: pnpm docs:generate:plugins
+
+      - name: Generate API documentation
+        run: pnpm docs:generate:api
 
       - name: Build with VitePress
         run: pnpm docs:build

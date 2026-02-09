@@ -45,12 +45,25 @@ export default defineConfig({
 			{text: 'Blog', link: '/blog'},
 			{text: 'Guide', link: '/guide/tutorials'},
 			{text: 'Plugins', link: '/plugins'},
-			{text: 'API Reference', link: '/api/v2.0.0-alpha.1'},
+			{text: 'API Reference', link: '/develop/api/v2.0.0-alpha.1'},
 		],
 		sidebar: {
 			'/blog': [],
 			'/plugins': pluginsSidebar,
-			'/api': apiSidebar,
+			'/develop': [
+				{
+					text: 'Contributing to Leaflet',
+					link: '/develop/contributing'
+				},
+				{
+					text: 'Plugin Authoring Guide',
+					link: '/develop/plugins'
+				},
+				{
+					text: 'API Reference',
+					items: apiSidebar
+				}
+			],
 			'/':[
 				{
 					text: 'Tutorials',
