@@ -8,7 +8,7 @@ import apiSidebar from './generated-sidebars/api-sidebar.js';
 export default defineConfig({
 	title: 'Leaflet Hub',
 	description: 'Leaflet blog, api reference and documentation',
-	base: '/Leaflet/',
+	base: '/leaflet-wip/',
 	head: [
 		[
 			'link',
