@@ -79,9 +79,6 @@ export default defineConfig({
 						{text: 'Zoom Levels', link: '/guide/tutorials/zoom-levels'},
 					]
 				},
-				{text: 'Blog', link: '/blog/'},
-				{text: 'API Reference', link: '/api/v2.0.0-alpha.1'},
-				{text: 'Documentation', link: '/docs'},
 			],
 		},
 		socialLinks: [
