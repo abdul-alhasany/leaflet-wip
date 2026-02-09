@@ -250,7 +250,6 @@ CSS styles for the control (we also reuse the `info` class defined earlier):
     opacity: 0.7;
 }
 ```
-
 Enjoy the result on the top of this page, or on a [separate page](example.html).
 
 <script setup>
