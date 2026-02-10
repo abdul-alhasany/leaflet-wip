@@ -39,7 +39,7 @@
     "rollup": "^4.57.1",
     "simple-git": "^3.30.0",
     "sinon": "^21.0.1",
-    "ssri": "^13.0.0",
+    "ssri": "^13.0.1",
     "tailwindcss": "^4.1.18",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.54.0",
