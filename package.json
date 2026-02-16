@@ -37,7 +37,7 @@
     "prosthetic-hand": "^2.0.0",
     "requirejs": "^2.3.8",
     "rollup": "^4.57.1",
-    "simple-git": "^3.30.0",
+    "simple-git": "^3.31.1",
     "sinon": "^21.0.1",
     "ssri": "^13.0.0",
     "tailwindcss": "^4.1.18",
